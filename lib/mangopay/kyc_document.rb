@@ -10,7 +10,7 @@ module MangoPay
       end
 
       def update(user_id, document_id, params = {}, idempotency_key = nil)
-        MangoPay.request(:put, url(user_id, document_id), params, idempotency_key)
+        MangoPay.request(:put, url(user_id, document_id), params, {}, idempotency_key)
       end
 
       # Fetches the KYC document belonging to the given +user_id+, with the given +document_id+.
