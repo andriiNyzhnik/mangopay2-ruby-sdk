@@ -18,12 +18,12 @@ module MangoPay
         MangoPay.request(:get, url(user_id, id), {}, {}, idempotency_key)
       end
 
-      def update(user_id, id, params = {})
+      def update(user_id, id, params = {}, idempotency_key)
         request_params = {
             Status: params['Status'],
             Ubos: params['Ubos']
         }
-        MangoPay.request(:put, url(user_id, id), request_params)
+        MangoPay.request(:put, url(user_id, id), request_params, {}, idempotency_key)
       end
     end
   end
